@@ -1,0 +1,5 @@
+
+# Simple test
+my_namespace = {
+  param1 = "HELLO" + " " + "WORLD";
+};

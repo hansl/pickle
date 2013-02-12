@@ -1,0 +1,18 @@
+@meta accumulator;
+
+@meta translate(id: @number, language: @optional @string): @string;
+
+my_namespace = {
+  # @const is provided by pickle. It cannot be queried and is instead optimized
+  # away. These are always treated like terminal values.
+  # Because of the complexity involved, you can't add meta-data that are not
+  # @const. This is to prevent circular references inside C.
+  @accumulator @const
+  param1 = 123;
+
+  @accumulator @translate(param1)
+  param2 = "Hello World";
+
+  @accumulator @translate(123, "fr")
+  param3 = "Hello World";
+};
