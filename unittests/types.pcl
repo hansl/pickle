@@ -1,0 +1,43 @@
+# General typing tests and declaration.
+
+dictionary = {
+  value1 = 1;
+  value2 = 2;
+};
+
+list = [
+  "value1",
+  "value2"
+];
+
+@const cant_be_queried = 123;
+can_be_queried = cant_be_queried;
+
+# Typed declarations.
+@number n = 1;
+@bool b = (n == 2);
+@string s = "hello world";
+@dictionary d = {};
+@list l = [];
+
+# Valid conversions.
+valid_conversions = [
+  @number("123"),
+  @string(123),
+  @string([1, 2, 3, 4], ","),
+  @list("1,2,3,4", ",")
+];
+
+# Invalid conversions. These will generate errors if they're queried, but no
+# error when parsed (since there's no syntax error).
+invalid_conversions = [
+  @number("hello"),
+  @number([]),
+  @number({}),
+  @string([]),
+  @string({}),
+  @bool("1"),  # Can't convert anything to bool, really.
+  @bool(0),
+  @bool([]),
+  @bool({}),
+];
