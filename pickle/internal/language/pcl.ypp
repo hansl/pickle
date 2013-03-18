@@ -1,0 +1,148 @@
+%{
+#define YYERROR_VERBOSE 1
+
+#include <string>
+
+int yylex();
+void yyerror(const char* s, ...);
+
+%}
+
+%union {
+  long i;
+  long double d;
+  int b;
+  const char* s;
+}
+
+%token <b>    BOOLEAN
+%token <i>    INTEGER
+%token <d>    DOUBLE
+%token <s>    STRING
+%token <s>    SYMBOL
+%token <s>    CRITERIA_SYMBOL
+%type  <node> statement
+//              namespace_statement
+//              namespace_statement_list
+//              const_decl
+//              param_decl
+//              variant_decl_list
+//              variant_decl_statement
+//              condition
+//              expression
+
+%token CONST PARAM CRITERIA
+%token TYPE_INTEGER TYPE_STRING TYPE_DOUBLE TYPE_BOOL
+%token IMPORT NAMESPACE FUNCTION EXPERIMENT
+%token VARIANT
+
+%token BOOL_FALSE BOOL_TRUE
+
+/* Operator precedence. We stick with the closest to C we can. */
+%left '>' '<' GE EQ NE LE
+%left OR AND
+%left '+' '-'
+%left '*' '/'
+%nonassoc UMINUS
+
+%%
+
+program:
+    compiler_statement program
+  | statement program          { }
+  |
+  ;
+
+compiler_statement:
+//    IMPORT STRING ';' { ; }
+  ;
+
+statement: ;
+
+//statement:
+//    FUNCTION SYMBOL ';'                               { $$ = NULL; }
+//  | EXPERIMENT SYMBOL '=' INTEGER ';'                 { $$ = NULL; }
+//  | EXPERIMENT SYMBOL '(' INTEGER ')' ';'             { $$ = NULL; }
+//  | CRITERIA SYMBOL '=' STRING ';'                    { $$ = yyNewStringCriteria($2, $4); }
+//  | NAMESPACE SYMBOL '{' namespace_statement_list '}' { $$ = yySetNamespaceStatementName($4, $2); }
+//  ;
+//
+//namespace_statement_list:                             { $$ = yyNewNamespaceStatement(); }
+//  | namespace_statement namespace_statement_list      { $$ = yyAddStatementToNamespace($2, $1); }
+//  ;
+//
+//variant_decl_list:                                    { $$ = yyNewVariantListDeclarationStatement(); }
+//  | variant_decl_statement variant_decl_list          { $$ = yyAddVariantStatementToList($2, $1); }
+//  ;
+//
+//namespace_statement:
+//    NAMESPACE SYMBOL '{' namespace_statement_list '}' { $$ = yySetNamespaceStatementName($4, $2); }
+//  | CRITERIA SYMBOL '=' STRING ';'                    { $$ = yyNewStringCriteria($2, $4); }
+//  | const_decl ';'                                    { $$ = $1; }
+//  | param_decl ';'                                    { $$ = $1; }
+//  | param_decl '{' variant_decl_list '}'              { $$ = yyAddVariantListToParam($1, $3); }
+//  | ';'                                               { /* Do Nothing */ }
+//  ;
+//
+//variant_decl_statement:
+//    VARIANT '(' condition ')' '=' expression ';'      { $$ = yyNewVariantDeclarationStatement($3, $6); }
+//  ;
+//
+//
+//const_decl:
+//    CONST              SYMBOL '=' expression          { $$ = yyNewConstDeclarationStatement($2, $4); }
+//  | CONST TYPE_BOOL    SYMBOL '=' expression          { $$ = yyNewConstDeclarationStatement($3, $5); }
+//  | CONST TYPE_INTEGER SYMBOL '=' expression          { $$ = yyNewConstDeclarationStatement($3, $5); }
+//  | CONST TYPE_DOUBLE  SYMBOL '=' expression          { $$ = yyNewConstDeclarationStatement($3, $5); }
+//  | CONST TYPE_STRING  SYMBOL '=' expression          { $$ = yyNewConstDeclarationStatement($3, $5); }
+//  ;
+//
+//param_decl:
+//    PARAM              SYMBOL '=' expression          { $$ = yyNewParamDeclarationStatement($2, $4); }
+//  | PARAM TYPE_BOOL    SYMBOL '=' expression          { $$ = yyNewParamDeclarationStatement($3, $5); }
+//  | PARAM TYPE_INTEGER SYMBOL '=' expression          { $$ = yyNewParamDeclarationStatement($3, $5); }
+//  | PARAM TYPE_DOUBLE  SYMBOL '=' expression          { $$ = yyNewParamDeclarationStatement($3, $5); }
+//  | PARAM TYPE_STRING  SYMBOL '=' expression          { $$ = yyNewParamDeclarationStatement($3, $5); }
+//  ;
+//
+//condition:
+//    CRITERIA_SYMBOL                                   { $$ = yyNewCriteriaSymbol($1); }
+//  ;
+//
+//expression:
+//  /* Parenthesis */
+//    '(' expression ')'              { $$ = $2; }
+//
+//  /* Terminal Values */
+//  | BOOLEAN                         { $$ = yyNewBoolValue($1); }
+//  | INTEGER                         { $$ = yyNewLongValue($1); }
+//  | DOUBLE                          { $$ = yyNewDoubleValue($1); }
+//  | STRING                          { $$ = yyNewStringValue($1); }
+//  | BOOL_FALSE                      { $$ = yyNewBoolValue(0); }
+//  | BOOL_TRUE                       { $$ = yyNewBoolValue(1); }
+//
+//  /* Conversion */
+//  | TYPE_BOOL    '(' expression ')' { $$ = yyNewBoolConversion($3); }
+//  | TYPE_INTEGER '(' expression ')' { $$ = yyNewIntConversion($3); }
+//  | TYPE_DOUBLE  '(' expression ')' { $$ = yyNewDoubleConversion($3); }
+//  | TYPE_STRING  '(' expression ')' { $$ = yyNewStringConversion($3); }
+//
+//  /* Binary operators */
+//  | expression '+' expression       { $$ = yyNewAddExpression($1, $3); }
+//  | expression '-' expression       { $$ = yyNewSubExpression($1, $3); }
+//  | expression '*' expression       { $$ = yyNewMultExpression($1, $3); }
+//  | expression '/' expression       { $$ = yyNewDivExpression($1, $3); }
+//
+//  /* Comparison */
+//  | expression '>' expression       { $$ = yyNewGreaterThanExpression($1, $3); }
+//  | expression '<' expression       { $$ = yyNewLessThanExpression($1, $3); }
+//  | expression EQ  expression       { $$ = yyNewEqualExpression($1, $3); }
+//  | expression NE  expression       { $$ = yyNewNotEqualExpression($1, $3); }
+//  | expression GE  expression       { $$ = yyNewGreaterEqualExpression($1, $3); }
+//  | expression LE  expression       { $$ = yyNewLessEqualExpression($1, $3); }
+//  | expression OR  expression       { $$ = yyNewOrExpression($1, $3); }
+//  | expression AND expression       { $$ = yyNewAndExpression($1, $3); }
+//
+//  /* Symbols */
+//  | SYMBOL                          { $$ = yyNewSymbol($1); }
+//  ;

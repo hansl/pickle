@@ -21,14 +21,17 @@ Please check the API.md for a complete description of the API and classes.
     # main.pcl
     @function language(): @string;
 
-    @condition is_french = language() == 'fr';
-    @condition is_spanish = language() == 'es';
+    is_french = language() == 'fr';
+    is_spanish = language() == 'es';
 
-    @namespace MyNamespace {
+    MyNamespace = {
       param = "Hello";
-      param2 = MyNamespace.param + " World"
-             | is_french = MyNamespace.param + " Monde"
-             | is_spanish = MyNamespace.param + " Mundo";
+      param2 =             param + " World"
+             | is_french:  param + " Monde"
+             | is_spanish: param + " Mundo";
+    }
+    MyOtherNamespace = {
+      another_param = MyNamespace.param;
     }
 
 ----

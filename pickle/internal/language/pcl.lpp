@@ -4,38 +4,46 @@
  */
 
 %{
-  #include <stdarg.h>
-  #include <stdlib.h>
-  #include <stdio.h>
+  #include <string>
+  #include <sstream>
 
-  #include "pcl.h"
+  #include "y.tab.h"
+  #include "lexer.hpp"
 %}
 
 %{
-  // String declaration. The maximum size for a string is only for the string
-  // literal. You can still concatenate two strings together, for example.
-  // This contraints both type of strings: standard literals and """..."""
-  // multiline ones.
-  // A syntax error happens when STR_MAX_SIZE is reached.
-  static const int STR_MAX_SIZE = 4095;
-  static char str_buffer[STR_MAX_SIZE + 1];
-  static int buffer_index = 0;
+  // String declaration.
+  static std::ostringstream buffer;
 
   static void str_add(char c) {
-    if (buffer_index > STR_MAX_SIZE) {
-      yyerror("String constant too long.");
-    }
-    str_buffer[buffer_index++] = c;
+    buffer << c;
   }
   static void str_reset() {
-    buffer_index = 0;
+    buffer.clear();
   }
   static const char* str_get() {
-    str_add(0);
-    return strdup(str_buffer);
+    return buffer.str().c_str();
+  }
+%}
+
+%{
+  static void lex_error(const char* str, ...) {
+    static char buffer[1024];
+    va_list args;
+    va_start(args, str);
+    vsnprintf(buffer, sizeof(buffer) / sizeof(char), str, args);
+    va_end(args);
+
+//    ll_error(buffer);
+  }
+
+
+  static void newline() {
+    lexical_stack::get()->new_line();
   }
 
 %}
+
 %x ST_STRING
 %x ST_ML_STRING
 %x ST_COMMENT
@@ -60,19 +68,19 @@ hfc       (({hpref}{hfrac}{bexp}{fsuff_opt})|({hpref}{hdseq}{bexp}{fsuff_opt}))
 
   /* Comments */
 
-#.*[\n]              { ll_newline(); }
+#.*[\n]              { newline(); }
 
   /* Multiline comments */
 "/*"                 { BEGIN(ST_COMMENT); }
 <ST_COMMENT>"*/"     { BEGIN(0); }
 <ST_COMMENT>[^*\n]+  { }
 <ST_COMMENT>"*"[^/]  { }
-<ST_COMMENT>\n       { ll_newline(); }
+<ST_COMMENT>\n       { newline(); }
 
   /* Multi-Line String Literals */
 \"\"\"               { BEGIN(ST_ML_STRING); str_reset(); }
 <ST_ML_STRING>\"\"\" { BEGIN(0); yylval.s = str_get(); return STRING; }
-<ST_ML_STRING>\n     { str_add(*yytext); ll_newline(); }
+<ST_ML_STRING>\n     { str_add(*yytext); newline(); }
 <ST_ML_STRING>.      { str_add(*yytext); }
 
   /* String Literals */
@@ -81,12 +89,12 @@ hfc       (({hpref}{hfrac}{bexp}{fsuff_opt})|({hpref}{hdseq}{bexp}{fsuff_opt}))
 <ST_STRING>\\t      { str_add('\t'); }
 <ST_STRING>\\\"     { str_add('\"'); }
 <ST_STRING>\"       { BEGIN(0); yylval.s = str_get(); return STRING; }
-<ST_STRING>\n       { yyerror("String literals cannot contain new lines."); }
+<ST_STRING>\n       { lex_error("String literals cannot contain new lines."); }
 <ST_STRING>.        { str_add(*yytext); }
 
   /* Ignore whitespaces */
 [ \t]+ ;
-[\n]  { ll_newline(); }
+[\n]  { newline(); }
 
   /* INTEGERS */
 ([[:digit:]]{-}[0])[[:digit:]]* { yylval.i = strtol(yytext, NULL, 10);
@@ -143,23 +151,14 @@ hfc       (({hpref}{hfrac}{bexp}{fsuff_opt})|({hpref}{hdseq}{bexp}{fsuff_opt}))
 [-+*/&=:;|!(){}\[\]><]          { return *yytext; }
 
   /* Anything else is a syntax error. */
-.                               { yyerror("Unknown character '%c' (%d).",
+.                               { lex_error("Unknown character '%c' (%d).",
                                           *yytext, *yytext);
                                 }
 
 %%
 // This function
 int yywrap(void) {
-  return ll_eof();
-}
-
-void yyerror(const char* str, ...) {
-  static char buffer[1024];
-  va_list args;
-  va_start(args, str);
-  vsnprintf(buffer, sizeof(buffer) / sizeof(char), str, args);
-  va_end(args);
-
-  ll_error(buffer);
+//  return ll_eof();
+return 0;
 }
 
