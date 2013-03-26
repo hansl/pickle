@@ -19,4 +19,6 @@ class value {
   value() {};
 };
 
+} // end namespace pickle
+
 #endif // PICKLE_HH__

@@ -4,6 +4,8 @@
  */
 
 %{
+  #include "exceptions.hpp"
+
   #include <string>
   #include <sstream>
 
@@ -34,9 +36,8 @@
     vsnprintf(buffer, sizeof(buffer) / sizeof(char), str, args);
     va_end(args);
 
-//    ll_error(buffer);
+    throw LexicalError(buffer);
   }
-
 
   static void newline() {
     lexical_stack::get()->new_line();

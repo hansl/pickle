@@ -1,10 +1,22 @@
 %{
 #define YYERROR_VERBOSE 1
 
+#include "exceptions.hpp"
+
+#include <stdio.h>
+
+#include <exception>
 #include <string>
 
 int yylex();
-void yyerror(const char* s, ...);
+
+void yyerror(const char* s, ...) {
+  va_list args;
+  va_start(args, s);
+  char buffer[1024];
+  vsnprintf(buffer, sizeof(buffer) / sizeof(char), s, args);
+  throw SyntaxError(buffer);
+}
 
 %}
 
