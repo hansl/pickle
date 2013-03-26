@@ -12,6 +12,7 @@
 		8A8268AE16F6A4E700A176CA /* pcl.lpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A8268AB16F6A4E700A176CA /* pcl.lpp */; };
 		8A8268B116F6A5EE00A176CA /* lexer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A8268AF16F6A5EE00A176CA /* lexer.cpp */; };
 		8A8268B316F6AE6D00A176CA /* pcl.ypp in Sources */ = {isa = PBXBuildFile; fileRef = 8A8268B216F6AE6D00A176CA /* pcl.ypp */; };
+		8AFE52021701759E008AC63B /* exceptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AFE52001701759E008AC63B /* exceptions.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,8 @@
 		8A8268AF16F6A5EE00A176CA /* lexer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lexer.cpp; sourceTree = "<group>"; };
 		8A8268B016F6A5EE00A176CA /* lexer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = lexer.hpp; sourceTree = "<group>"; };
 		8A8268B216F6AE6D00A176CA /* pcl.ypp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = pcl.ypp; sourceTree = "<group>"; };
+		8AFE52001701759E008AC63B /* exceptions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = exceptions.cpp; sourceTree = "<group>"; };
+		8AFE52011701759E008AC63B /* exceptions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = exceptions.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,8 @@
 		8A8268AA16F6A4E700A176CA /* language */ = {
 			isa = PBXGroup;
 			children = (
+				8AFE52001701759E008AC63B /* exceptions.cpp */,
+				8AFE52011701759E008AC63B /* exceptions.hpp */,
 				8A8268B216F6AE6D00A176CA /* pcl.ypp */,
 				8A8268AB16F6A4E700A176CA /* pcl.lpp */,
 				8A8268AF16F6A5EE00A176CA /* lexer.cpp */,
@@ -164,6 +169,7 @@
 				8A8268AE16F6A4E700A176CA /* pcl.lpp in Sources */,
 				8A8268B116F6A5EE00A176CA /* lexer.cpp in Sources */,
 				8A8268B316F6AE6D00A176CA /* pcl.ypp in Sources */,
+				8AFE52021701759E008AC63B /* exceptions.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
