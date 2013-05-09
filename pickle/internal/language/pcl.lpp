@@ -4,7 +4,7 @@
  */
 
 %{
-  #include "exceptions.hpp"
+  #include "pickle.hpp"
 
   #include <string>
   #include <sstream>
@@ -36,7 +36,7 @@
     vsnprintf(buffer, sizeof(buffer) / sizeof(char), str, args);
     va_end(args);
 
-    throw LexicalError(buffer);
+    throw pickle::lexical_error(buffer);
   }
 
   static void newline() {
@@ -153,7 +153,7 @@ hfc       (({hpref}{hfrac}{bexp}{fsuff_opt})|({hpref}{hdseq}{bexp}{fsuff_opt}))
 
   /* Anything else is a syntax error. */
 .                               { lex_error("Unknown character '%c' (%d).",
-                                          *yytext, *yytext);
+                                            *yytext, *yytext);
                                 }
 
 %%

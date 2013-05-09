@@ -6,15 +6,17 @@
 //  Copyright (c) 2013 Hans Larsen. All rights reserved.
 //
 
+#include <fstream>
 #include <iostream>
 
 #include "pickle.hpp"
 
 int main(int argc, const char * argv[])
 {
-
-  // insert code here...
-  std::cout << "Hello, World!\n";
+  std::string x = "param = 1;";
+  pickle::pickle* p = pickle::new_pickle().release();
+  p->load(x);
+  std::cout << p->query("param").get();
   return 0;
 }
 
