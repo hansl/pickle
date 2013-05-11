@@ -14,7 +14,7 @@
 
 // C++ Header for the pickle API.
 
-namespace pickle {
+namespace pickle_ {
 
 class pickle_impl : public pickle {
 public:
@@ -28,6 +28,6 @@ private:
   
 };
 
-} // end namespace pickle
+} // end namespace pickle+
 
 #endif // PICKLE_API_PICKLE_HH__

@@ -8,10 +8,9 @@
 
 #include "lexer.hpp"
 
-lexical_stack::lexical_stack() {}
+pickle_::lexical_stack::lexical_stack() {}
 
-lexical_stack* lexical_stack::get() {
+pickle_::lexical_stack* pickle_::lexical_stack::get() {
   static lexical_stack the_stack;
   return &the_stack;
 }
-

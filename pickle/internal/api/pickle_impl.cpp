@@ -8,11 +8,11 @@ namespace pickle {
 pickle_impl::pickle_impl() {}
 
 void pickle_impl::load(std::istream &in) {
-
+  
 }
 
 void pickle_impl::load(const std::string &in) {
-
+  
 }
 
 std::unique_ptr<value> pickle_impl::query(const std::string& q) {

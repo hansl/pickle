@@ -12,6 +12,12 @@
 #include <string>
 #include <vector>
 
+namespace pickle_ {
+
+class lexer {
+
+};
+
 class lexical_stack {
 public:
   class entry {
@@ -36,5 +42,7 @@ private:
   lexical_stack();
   std::vector<entry> stack_;
 };
+
+}  // namespace pickle_
 
 #endif /* defined(__pickle__lexer__) */
