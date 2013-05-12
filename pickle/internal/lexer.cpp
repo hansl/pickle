@@ -14,3 +14,7 @@ pickle_::lexical_stack* pickle_::lexical_stack::get() {
   static lexical_stack the_stack;
   return &the_stack;
 }
+
+pickle_::program pickle_::lexer::parse(const std::string& str) {
+  
+}

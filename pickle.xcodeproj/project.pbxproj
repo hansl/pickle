@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A81E8D8173B7620009D90AB /* pickle_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A81E8D7173B7620009D90AB /* pickle_impl.cpp */; };
 		8A82689E16F6A48600A176CA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A82689D16F6A48600A176CA /* main.cpp */; };
 		8A8268A016F6A48600A176CA /* pickle.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8A82689F16F6A48600A176CA /* pickle.1 */; };
-		8A8268AE16F6A4E700A176CA /* pcl.lpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A8268AB16F6A4E700A176CA /* pcl.lpp */; };
-		8A8268B116F6A5EE00A176CA /* lexer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8A8268AF16F6A5EE00A176CA /* lexer.cpp */; };
-		8A8268B316F6AE6D00A176CA /* pcl.ypp in Sources */ = {isa = PBXBuildFile; fileRef = 8A8268B216F6AE6D00A176CA /* pcl.ypp */; };
-		8AFE52021701759E008AC63B /* exceptions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AFE52001701759E008AC63B /* exceptions.cpp */; };
+		8AC32C68173F578A00D6E877 /* lexer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC32C60173F578A00D6E877 /* lexer.cpp */; };
+		8AC32C69173F578A00D6E877 /* pcl.lpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC32C62173F578A00D6E877 /* pcl.lpp */; };
+		8AC32C6A173F578A00D6E877 /* pcl.ypp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC32C63173F578A00D6E877 /* pcl.ypp */; };
+		8AC32C6B173F578A00D6E877 /* pickle_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC32C64173F578A00D6E877 /* pickle_impl.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,23 +29,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8A81E8D6173B6373009D90AB /* statement.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = statement.hpp; sourceTree = "<group>"; };
-		8A81E8D7173B7620009D90AB /* pickle_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pickle_impl.cpp; sourceTree = "<group>"; };
-		8A81E8D9173B77A2009D90AB /* pickle_impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pickle_impl.hpp; sourceTree = "<group>"; };
 		8A82689A16F6A48600A176CA /* pickle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pickle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A82689D16F6A48600A176CA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8A82689F16F6A48600A176CA /* pickle.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = pickle.1; sourceTree = "<group>"; };
-		8A8268A816F6A4E700A176CA /* expression.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = expression.hpp; sourceTree = "<group>"; };
-		8A8268A916F6A4E700A176CA /* value.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = value.hpp; sourceTree = "<group>"; };
-		8A8268AB16F6A4E700A176CA /* pcl.lpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.lex; fileEncoding = 4; path = pcl.lpp; sourceTree = "<group>"; };
 		8A8268AC16F6A4E700A176CA /* pickle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pickle.h; sourceTree = "<group>"; };
 		8A8268AD16F6A4E700A176CA /* pickle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pickle.hpp; sourceTree = "<group>"; };
-		8A8268AF16F6A5EE00A176CA /* lexer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lexer.cpp; sourceTree = "<group>"; };
-		8A8268B016F6A5EE00A176CA /* lexer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = lexer.hpp; sourceTree = "<group>"; };
-		8A8268B216F6AE6D00A176CA /* pcl.ypp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = pcl.ypp; sourceTree = "<group>"; };
+		8AC32C5F173F578A00D6E877 /* expression.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = expression.hpp; sourceTree = "<group>"; };
+		8AC32C60173F578A00D6E877 /* lexer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lexer.cpp; sourceTree = "<group>"; };
+		8AC32C61173F578A00D6E877 /* lexer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = lexer.hpp; sourceTree = "<group>"; };
+		8AC32C62173F578A00D6E877 /* pcl.lpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = pcl.lpp; sourceTree = "<group>"; };
+		8AC32C63173F578A00D6E877 /* pcl.ypp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = pcl.ypp; sourceTree = "<group>"; };
+		8AC32C64173F578A00D6E877 /* pickle_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pickle_impl.cpp; sourceTree = "<group>"; };
+		8AC32C65173F578A00D6E877 /* pickle_impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pickle_impl.hpp; sourceTree = "<group>"; };
+		8AC32C66173F578A00D6E877 /* statement.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = statement.hpp; sourceTree = "<group>"; };
+		8AC32C67173F578A00D6E877 /* value.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = value.hpp; sourceTree = "<group>"; };
 		8AF4B02D172F85710066E437 /* test.pcl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.pcl; sourceTree = "<group>"; };
-		8AFE52001701759E008AC63B /* exceptions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = exceptions.cpp; sourceTree = "<group>"; };
-		8AFE52011701759E008AC63B /* exceptions.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = exceptions.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,35 +89,17 @@
 		8A8268A616F6A4E700A176CA /* internal */ = {
 			isa = PBXGroup;
 			children = (
-				8A8268A716F6A4E700A176CA /* api */,
-				8A8268AA16F6A4E700A176CA /* language */,
+				8AC32C5F173F578A00D6E877 /* expression.hpp */,
+				8AC32C60173F578A00D6E877 /* lexer.cpp */,
+				8AC32C61173F578A00D6E877 /* lexer.hpp */,
+				8AC32C62173F578A00D6E877 /* pcl.lpp */,
+				8AC32C63173F578A00D6E877 /* pcl.ypp */,
+				8AC32C64173F578A00D6E877 /* pickle_impl.cpp */,
+				8AC32C65173F578A00D6E877 /* pickle_impl.hpp */,
+				8AC32C66173F578A00D6E877 /* statement.hpp */,
+				8AC32C67173F578A00D6E877 /* value.hpp */,
 			);
 			path = internal;
-			sourceTree = "<group>";
-		};
-		8A8268A716F6A4E700A176CA /* api */ = {
-			isa = PBXGroup;
-			children = (
-				8A8268A816F6A4E700A176CA /* expression.hpp */,
-				8A8268A916F6A4E700A176CA /* value.hpp */,
-				8A81E8D6173B6373009D90AB /* statement.hpp */,
-				8A81E8D7173B7620009D90AB /* pickle_impl.cpp */,
-				8A81E8D9173B77A2009D90AB /* pickle_impl.hpp */,
-			);
-			path = api;
-			sourceTree = "<group>";
-		};
-		8A8268AA16F6A4E700A176CA /* language */ = {
-			isa = PBXGroup;
-			children = (
-				8AFE52001701759E008AC63B /* exceptions.cpp */,
-				8AFE52011701759E008AC63B /* exceptions.hpp */,
-				8A8268B216F6AE6D00A176CA /* pcl.ypp */,
-				8A8268AB16F6A4E700A176CA /* pcl.lpp */,
-				8A8268AF16F6A5EE00A176CA /* lexer.cpp */,
-				8A8268B016F6A5EE00A176CA /* lexer.hpp */,
-			);
-			path = language;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,11 +154,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A82689E16F6A48600A176CA /* main.cpp in Sources */,
-				8A8268AE16F6A4E700A176CA /* pcl.lpp in Sources */,
-				8A8268B116F6A5EE00A176CA /* lexer.cpp in Sources */,
-				8A8268B316F6AE6D00A176CA /* pcl.ypp in Sources */,
-				8AFE52021701759E008AC63B /* exceptions.cpp in Sources */,
-				8A81E8D8173B7620009D90AB /* pickle_impl.cpp in Sources */,
+				8AC32C68173F578A00D6E877 /* lexer.cpp in Sources */,
+				8AC32C69173F578A00D6E877 /* pcl.lpp in Sources */,
+				8AC32C6A173F578A00D6E877 /* pcl.ypp in Sources */,
+				8AC32C6B173F578A00D6E877 /* pickle_impl.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
