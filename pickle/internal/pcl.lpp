@@ -42,14 +42,16 @@
 
   // New lines and stacking.
   static void newline() {
-    lexical_stack::get()->new_line();
+    pickle_::lexical_stack::get()->new_line();
   }
 %}
 
 %{
 
   // Lex read
-  int lex_nextchar( char *buffer, int *numBytesRead, int maxBytesToRead );
+  int lex_nextchar( char *buffer, yy_size_t *numBytesRead, yy_size_t maxBytesToRead ) {
+  return 0;
+  }
   #undef YY_INPUT
   #define YY_INPUT(buffer, n, max) lex_nextchar(buffer, &n, max)
 

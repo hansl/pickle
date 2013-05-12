@@ -8,13 +8,22 @@
 
 #include "lexer.hpp"
 
-pickle_::lexical_stack::lexical_stack() {}
+namespace pickle_ {
 
-pickle_::lexical_stack* pickle_::lexical_stack::get() {
+lexical_stack::lexical_stack() {}
+
+lexical_stack* lexical_stack::get() {
   static lexical_stack the_stack;
   return &the_stack;
 }
 
-pickle_::program pickle_::lexer::parse(const std::string& str) {
-  
+std::unique_ptr<program> lexer::parse(const std::string& s) {
+  std::unique_ptr<program> p(new program());
+  return std::unique_ptr<program>(p.release());
+}
+
+}
+
+int lex_nextchar( char *buffer, int *numBytesRead, int maxBytesToRead ) {
+  return 0;
 }

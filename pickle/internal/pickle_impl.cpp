@@ -3,24 +3,24 @@
 //
 #include "pickle_impl.hpp"
 
-namespace pickle {
+namespace pickle_ {
 
-pickle_impl::pickle_impl() {}
+parser_impl::parser_impl() {}
 
-void pickle_impl::load(std::istream &in) {
+void parser_impl::load(std::istream &in) {
   
 }
 
-void pickle_impl::load(const std::string &in) {
+void parser_impl::load(const std::string &in) {
   
 }
 
-std::unique_ptr<value> pickle_impl::query(const std::string& q) {
+std::unique_ptr<pickle::value> parser_impl::query(const std::string& q) {
   return nullptr;
 }
 
-std::unique_ptr<pickle> new_pickle() {
-  return std::unique_ptr<pickle>(new pickle_impl());
-}
+}  // namespace pickle_
 
-}  // namespace pickle
+std::unique_ptr<pickle::parser> pickle::new_parser() {
+  return std::unique_ptr<pickle::parser>(new pickle_::parser_impl());
+}

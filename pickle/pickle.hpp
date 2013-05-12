@@ -42,17 +42,17 @@ class value {
 };
 
 
-class pickle {
+class parser {
  public:
   virtual void load(std::istream& in) = 0;
   virtual void load(const std::string& in) = 0;
   virtual std::unique_ptr<value> query(const std::string& query) = 0;
 
  protected:
-  pickle() {};
+  parser() {};
 };
 
-std::unique_ptr<pickle> new_pickle();
+std::unique_ptr<pickle::parser> new_parser();
 
 } // end namespace pickle
 

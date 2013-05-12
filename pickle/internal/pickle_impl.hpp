@@ -8,6 +8,7 @@
 #define PICKLE_API_PICKLE_HH__
 
 #include "pickle.hpp"
+
 #include <exception>
 #include <iostream>
 #include <string>
@@ -16,18 +17,18 @@
 
 namespace pickle_ {
 
-class pickle_impl : public pickle {
+class parser_impl : public pickle::parser {
 public:
-  pickle_impl();
+  parser_impl();
 
   void load(std::istream& in);
   void load(const std::string& in);
-  std::unique_ptr<value> query(const std::string& query);
+  std::unique_ptr<pickle::value> query(const std::string& query);
 
 private:
   
 };
 
-} // end namespace pickle+
+} // end namespace pickle_
 
 #endif // PICKLE_API_PICKLE_HH__

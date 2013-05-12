@@ -14,7 +14,7 @@
 int main(int argc, const char * argv[])
 {
   std::string x = "param = 1;";
-  pickle::pickle* p = pickle::new_pickle().release();
+  pickle::parser* p = pickle::new_parser().release();
   p->load(x);
   std::cout << p->query("param").get();
   return 0;

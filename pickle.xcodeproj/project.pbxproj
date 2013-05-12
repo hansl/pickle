@@ -43,6 +43,7 @@
 		8AC32C65173F578A00D6E877 /* pickle_impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pickle_impl.hpp; sourceTree = "<group>"; };
 		8AC32C66173F578A00D6E877 /* statement.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = statement.hpp; sourceTree = "<group>"; };
 		8AC32C67173F578A00D6E877 /* value.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = value.hpp; sourceTree = "<group>"; };
+		8AC32C6C173F57AF00D6E877 /* program.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = program.hpp; sourceTree = "<group>"; };
 		8AF4B02D172F85710066E437 /* test.pcl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.pcl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +99,7 @@
 				8AC32C65173F578A00D6E877 /* pickle_impl.hpp */,
 				8AC32C66173F578A00D6E877 /* statement.hpp */,
 				8AC32C67173F578A00D6E877 /* value.hpp */,
+				8AC32C6C173F57AF00D6E877 /* program.hpp */,
 			);
 			path = internal;
 			sourceTree = "<group>";

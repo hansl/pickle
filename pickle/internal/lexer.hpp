@@ -9,13 +9,16 @@
 #ifndef __pickle__lexer__
 #define __pickle__lexer__
 
+#include "program.hpp"
+
 #include <string>
 #include <vector>
 
 namespace pickle_ {
 
 class lexer {
-
+public:
+  std::unique_ptr<program> parse(const std::string& s);
 };
 
 class lexical_stack {
