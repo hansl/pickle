@@ -16,13 +16,13 @@ namespace pickle_ {
 
   class program {
   public:
-    typedef std::vector<std::shared_ptr<statement>>::const_iterator
+    typedef std::vector<std::shared_ptr<pcl::statement>>::const_iterator
         program_iterator;
 
   public:
     program() {}
 
-    void add_statement(std::shared_ptr<statement>& s) {
+    void add_statement(std::shared_ptr<pcl::statement>& s) {
       statements_.push_back(s);
     }
 
@@ -30,7 +30,7 @@ namespace pickle_ {
     const program_iterator end() const { return statements_.end(); }
 
   private:
-    std::vector<std::shared_ptr<statement>> statements_;
+    std::vector<std::shared_ptr<pcl::statement>> statements_;
   };
 
 } // end namespace pickle_

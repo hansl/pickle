@@ -12,7 +12,7 @@
 		8AC32C68173F578A00D6E877 /* lexer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC32C60173F578A00D6E877 /* lexer.cpp */; };
 		8AC32C69173F578A00D6E877 /* pcl.lpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC32C62173F578A00D6E877 /* pcl.lpp */; };
 		8AC32C6A173F578A00D6E877 /* pcl.ypp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC32C63173F578A00D6E877 /* pcl.ypp */; };
-		8AC32C6B173F578A00D6E877 /* pickle_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC32C64173F578A00D6E877 /* pickle_impl.cpp */; };
+		8AC32C6B173F578A00D6E877 /* parser_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AC32C64173F578A00D6E877 /* parser_impl.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,8 +39,8 @@
 		8AC32C61173F578A00D6E877 /* lexer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = lexer.hpp; sourceTree = "<group>"; };
 		8AC32C62173F578A00D6E877 /* pcl.lpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; path = pcl.lpp; sourceTree = "<group>"; };
 		8AC32C63173F578A00D6E877 /* pcl.ypp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; path = pcl.ypp; sourceTree = "<group>"; };
-		8AC32C64173F578A00D6E877 /* pickle_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pickle_impl.cpp; sourceTree = "<group>"; };
-		8AC32C65173F578A00D6E877 /* pickle_impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = pickle_impl.hpp; sourceTree = "<group>"; };
+		8AC32C64173F578A00D6E877 /* parser_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = parser_impl.cpp; sourceTree = "<group>"; };
+		8AC32C65173F578A00D6E877 /* parser_impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = parser_impl.hpp; sourceTree = "<group>"; };
 		8AC32C66173F578A00D6E877 /* statement.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = statement.hpp; sourceTree = "<group>"; };
 		8AC32C67173F578A00D6E877 /* value.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = value.hpp; sourceTree = "<group>"; };
 		8AC32C6C173F57AF00D6E877 /* program.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = program.hpp; sourceTree = "<group>"; };
@@ -95,8 +95,8 @@
 				8AC32C61173F578A00D6E877 /* lexer.hpp */,
 				8AC32C62173F578A00D6E877 /* pcl.lpp */,
 				8AC32C63173F578A00D6E877 /* pcl.ypp */,
-				8AC32C64173F578A00D6E877 /* pickle_impl.cpp */,
-				8AC32C65173F578A00D6E877 /* pickle_impl.hpp */,
+				8AC32C64173F578A00D6E877 /* parser_impl.cpp */,
+				8AC32C65173F578A00D6E877 /* parser_impl.hpp */,
 				8AC32C66173F578A00D6E877 /* statement.hpp */,
 				8AC32C67173F578A00D6E877 /* value.hpp */,
 				8AC32C6C173F57AF00D6E877 /* program.hpp */,
@@ -159,7 +159,7 @@
 				8AC32C68173F578A00D6E877 /* lexer.cpp in Sources */,
 				8AC32C69173F578A00D6E877 /* pcl.lpp in Sources */,
 				8AC32C6A173F578A00D6E877 /* pcl.ypp in Sources */,
-				8AC32C6B173F578A00D6E877 /* pickle_impl.cpp in Sources */,
+				8AC32C6B173F578A00D6E877 /* parser_impl.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

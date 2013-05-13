@@ -42,18 +42,16 @@
 
   // New lines and stacking.
   static void newline() {
-    pickle_::lexical_stack::get()->new_line();
+    pickle_::lexer::get()->stack().new_line();
   }
 %}
 
 %{
 
   // Lex read
-  int lex_nextchar( char *buffer, yy_size_t *numBytesRead, yy_size_t maxBytesToRead ) {
-  return 0;
-  }
+  int lex_read(char *buffer, size_t *numBytesRead, size_t maxBytesToRead);
   #undef YY_INPUT
-  #define YY_INPUT(buffer, n, max) lex_nextchar(buffer, &n, max)
+  #define YY_INPUT(buffer, n, max) lex_read(buffer, &n, max)
 
 %}
 
@@ -102,7 +100,8 @@ hfc       (({hpref}{hfrac}{bexp}{fsuff_opt})|({hpref}{hdseq}{bexp}{fsuff_opt}))
 <ST_STRING>\\t      { str_add('\t'); }
 <ST_STRING>\\\"     { str_add('\"'); }
 <ST_STRING>\"       { BEGIN(0); yylval.s = str_get(); return STRING; }
-<ST_STRING>\n       { lex_error("String literals cannot contain new lines."); }
+<ST_STRING>\n       { lex_error("String literals cannot contain new lines.");
+                      newline(); }
 <ST_STRING>.        { str_add(*yytext); }
 
   /* Ignore whitespaces */
@@ -172,6 +171,6 @@ hfc       (({hpref}{hfrac}{bexp}{fsuff_opt})|({hpref}{hdseq}{bexp}{fsuff_opt}))
 // This function
 int yywrap(void) {
 //  return ll_eof();
-return 0;
+return 1;
 }
 

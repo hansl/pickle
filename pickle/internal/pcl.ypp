@@ -2,10 +2,10 @@
 #define YYERROR_VERBOSE 1
 
 #include "pickle.hpp"
+#include "statement.hpp"
+#include "value.hpp"
 
-#include <stdio.h>
-
-#include <string>
+#include <stdlib.h>
 
 int yylex();
 
@@ -24,10 +24,11 @@ void yyerror(const char* s, ...) {
   long double d;
   int b;
   const char* s;
+  void* node;
 }
 
 %token <b>    BOOLEAN
-%token <i>    INTEGER
+%token <i>    INTEGER	
 %token <d>    DOUBLE
 %token <s>    STRING
 %token <s>    SYMBOL
@@ -40,7 +41,7 @@ void yyerror(const char* s, ...) {
 //              variant_decl_list
 //              variant_decl_statement
 //              condition
-//              expression
+              expression
 
 %token CONST PARAM CRITERIA
 %token TYPE_INTEGER TYPE_STRING TYPE_DOUBLE TYPE_BOOL
@@ -68,14 +69,13 @@ compiler_statement:
 //    IMPORT STRING ';' { ; }
   ;
 
-statement: ;
-
-//statement:
+statement:
 //    FUNCTION SYMBOL ';'                               { $$ = NULL; }
 //  | EXPERIMENT SYMBOL '=' INTEGER ';'                 { $$ = NULL; }
 //  | EXPERIMENT SYMBOL '(' INTEGER ')' ';'             { $$ = NULL; }
 //  | CRITERIA SYMBOL '=' STRING ';'                    { $$ = yyNewStringCriteria($2, $4); }
 //  | NAMESPACE SYMBOL '{' namespace_statement_list '}' { $$ = yySetNamespaceStatementName($4, $2); }
+  SYMBOL '=' expression ';'                 { $$ = new pickle_::pcl::assignment_statement($1, $3); }
 //  ;
 //
 //namespace_statement_list:                             { $$ = yyNewNamespaceStatement(); }
@@ -120,13 +120,13 @@ statement: ;
 //    CRITERIA_SYMBOL                                   { $$ = yyNewCriteriaSymbol($1); }
 //  ;
 //
-//expression:
-//  /* Parenthesis */
-//    '(' expression ')'              { $$ = $2; }
-//
-//  /* Terminal Values */
+expression:
+  /* Parenthesis */
+    '(' expression ')'              { $$ = $2; }
+
+  /* Terminal Values */
 //  | BOOLEAN                         { $$ = yyNewBoolValue($1); }
-//  | INTEGER                         { $$ = yyNewLongValue($1); }
+  | INTEGER                         { $$ = new pickle_::integer_value($1); }
 //  | DOUBLE                          { $$ = yyNewDoubleValue($1); }
 //  | STRING                          { $$ = yyNewStringValue($1); }
 //  | BOOL_FALSE                      { $$ = yyNewBoolValue(0); }
