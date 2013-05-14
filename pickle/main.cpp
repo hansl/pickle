@@ -8,15 +8,21 @@
 
 #include <fstream>
 #include <iostream>
+#include <memory>
 
 #include "pickle.hpp"
 
 int main(int argc, const char * argv[])
 {
-  std::string x = "param = 1;";
-  pickle::pickle* p = pickle::new_pickle().release();
-  p->load(x);
-  std::cout << p->query("param").get();
+  try {
+    std::string x = "param = 1;";
+    std::shared_ptr<pickle::parser> p(pickle::new_parser());
+    p->load(x);
+    std::cout << p->query("param").get();
+  }
+  catch( std::exception* e ) {
+    std::cout << "Exception: " << e->what() << std::endl;
+  }
   return 0;
 }
 
